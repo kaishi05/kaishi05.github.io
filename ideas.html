@@ -75,6 +75,8 @@
 
 	<div id="tswcontent">
 	<!-- #BeginEditable "Content" -->
+
+	<div id="tswcontent0">
 	<div id="tswcontproper">
 	<!-- start of content column: insert your content here -->
 
@@ -87,24 +89,76 @@
 		to explore the potentiality of the site and ensure the best plan suiting 
 		your interests. A 3D-model built from the plan in computer will let you 
 		visualize the yard before it comes into reality. </span></span></p>
-		<p class="MsoNormal">
+		<!--<p class="MsoNormal">
 		<span style="font-size: 10.5pt; line-height: 115%; font-family: &quot;Arial&quot;,&quot;sans-serif&quot;; color: black; background: white"><o:p>
-		&nbsp;</o:p><img alt="yard design" src="images/ideas/backyard1_sm.jpg" style="width: 600px; height: 500px; padding-right: 30px; padding-bottom: 10px;"><img alt="yard design" src="images/ideas/backyard2_sm.jpg" style="width: 600px; height: 500px; padding-left: 5px; padding-right: 30px; padding-bottom: 10px;"></span></p>
-		<p class="MsoNormal">
-		&nbsp;</p>
-		<p class="MsoNormal">
-		<img alt="yard design1" src="images/ideas/op1_sm.jpg" style="width: 600px; height: 740px; padding-right: 30px;"><img alt="yard design2" src="images/ideas/op2_sm.jpg" style="width: 600px; height: 740px; padding-right: 30px;"></p>
-		<p class="MsoNormal">
-		&nbsp;</p>
-		<p class="MsoNormal">
-		<img alt="yard design1" src="images/ideas/sop1_sm.jpg" style="width: 800px; height: 745px; padding-right: 30px;"><img alt="yard design 2" src="images/ideas/sop2_sm.jpg" style="width: 800px; height: 745px"></p>
+		&nbsp;</o:p></span></p>
 		<p class="MsoNormal">
 		&nbsp;</p>
 		<p class="MsoNormal">
 		&nbsp;</p>
+		<p class="MsoNormal">
+		&nbsp;</p>
+		<p class="MsoNormal">
+		&nbsp;</p>
+		<p class="MsoNormal">
+		&nbsp;</p>
+		<p class="MsoNormal">
+		&nbsp;</p>-->
+		  <canvas id="canvas" width="1500px" height="1000px"></canvas><br>
+		  <img src="images/left.jpg" onclick="previousImage();" style="width:75px;">
+		  <img src="images/right.jpg" onclick="nextImage();" style="width:75px;">
+		  <script>
+		  function update() {
+		    pen.clearRect(0,0,canvas.width,canvas.height);
+		    canvas.width=images[index].width;
+		    canvas.height=images[index].height;
+		    pen.drawImage(images[index],0,0,images[index].width,images[index].height,0,0,canvas.width,canvas.height);
+		  }
+		  function previousImage() {
+		    index-=1;
+		    if (index<0) {
+		      index=images.length-1;
+		    } else if (index>images.length-1) {
+		      index=0
+		    }
+		  }
+		  function nextImage() {
+		    index+=1;
+		    if (index<0) {
+		      index=images.length-1;
+		    } else if (index>images.length-1) {
+		      index=0
+		    }
+		  }
+		  function imageList(images) {
+		    var list=[];
+		    for (var i=0;i<images.length;i++) {
+		      list.push(new Image());
+		      list[i].src=images[i];
+		    }
+		    return list;
+		  }
+		  function arrowKeys(event) {
+		    if (event.code=="ArrowLeft") {
+		      previousImage();
+		    } else if (event.code=="ArrowRight") {
+		      nextImage();
+		    }
+		  }
+		  var index=0
+		  var canvas=document.getElementById("canvas");
+		  var pen=canvas.getContext("2d");
+		  var images=imageList(["images/ideas/id1.jpg","images/ideas/id2.jpg","images/ideas/id3.jpg","images/ideas/id4.jpg",
+		  						"images/ideas/id5.jpg","images/ideas/id6.jpg","images/ideas/id7.jpg","images/ideas/id8.jpg",
+		  						"images/ideas/id9.jpg","images/ideas/id10.jpg","images/ideas/id11.jpg",]); //put image files here!
+		  document.addEventListener("keydown",arrowKeys);
+		  setInterval(update,1);
+		  </script>
 
 	<!-- end of content column: put your content above this line -->
 	</div>
+	</div>
+
 	<!-- #EndEditable -->
 	</div>
 
@@ -116,11 +170,11 @@
 <li><a href="index.html">Home </a></li>
 <li><a href="ideas.html">Design Ideas</a></li>
 <li><a href="construction.html">Construction Plans</a></li>
-<li><a href="http://www.lklandscapestudio.com/photos.html">Photo Gallery</a></li>
-<li><a href="http://www.lklandscapestudio.com/public.html">Public Projects</a></li>
+	<li><a href="public.html">Public Projects</a></li>
+<li><a href="gallery.html">Photo Gallery</a></li>
 <li><a href="sketch.html">My Sketches</a></li>
-<li><a href="http://www.lklandscapestudio.com/about.html">About Me</a></li>
-<li><a href="http://www.lklandscapestudio.com/contact.html">Contact</a></li>
+<li><a href="about.html">About Me</a></li>
+	<li><a href="contact.html">Contact Me</a></li>
 </ul>
 </div>
 

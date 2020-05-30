@@ -11,7 +11,8 @@ img {
 	height: auto ;
 }
 input, select, button, textarea {
-	max-width: 100% ;
+	max-width: 100%;
+	margin-bottom: 20px;
 }
 meter, progress, output {
 	max-width: 100% ;
