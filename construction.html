@@ -111,9 +111,18 @@
 		  <script>
 		  function update() {
 		    pen.clearRect(0,0,canvas.width,canvas.height);
-		    canvas.width=images[index].width;
-		    canvas.height=images[index].height;
-		    pen.drawImage(images[index],0,0,images[index].width,images[index].height,0,0,canvas.width,canvas.height);
+		    canvas.width = window.innerWidth*0.7;
+		    canvas.height = window.innerHeight*0.625;
+		    imgDim = [images[index].width,images[index].height];
+			if (canvas.width/canvas.height>imgDim[0]/imgDim[1]) {
+				factor = canvas.height/imgDim[1];
+			} else {
+				factor = canvas.width/imgDim[0];
+			}
+			imgDim = [imgDim[0]*factor,imgDim[1]*factor];
+			canvas.width = imgDim[0];
+		    canvas.height = imgDim[1];
+		    pen.drawImage(images[index],0,0,imgDim[0],imgDim[1]);
 		  }
 		  function previousImage() {
 		    index-=1;
